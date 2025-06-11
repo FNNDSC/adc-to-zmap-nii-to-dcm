@@ -3,6 +3,7 @@ import re
 
 _version_re = re.compile(r"(?<=^__version__ = (\"|'))(.+)(?=\"|')")
 
+
 def get_version(rel_path: str) -> str:
     """
     Searches for the ``__version__ = `` line in a source code file.
@@ -19,18 +20,21 @@ def get_version(rel_path: str) -> str:
 
 
 setup(
-    name='chris-plugin-template',
+    name='adc-to-zmap-nii-to-dcm',
     version=get_version('app.py'),
-    description='A ChRIS DS plugin template',
+    description='adc-to-zmap: nii-to-dcm',
     author='FNNDSC',
     author_email='dev@babyMRI.org',
     url='https://github.com/FNNDSC/python-chrisapp-template',
     py_modules=['app'],
-    install_requires=['chris_plugin'],
+    install_requires=[
+        'chris_plugin',
+        'nii2dcm',
+    ],
     license='MIT',
     entry_points={
         'console_scripts': [
-            'commandname = app:main'
+            'nii-to-dcm = app:main'
         ]
     },
     classifiers=[

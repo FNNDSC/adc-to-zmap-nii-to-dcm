@@ -19,4 +19,4 @@ RUN pip install ".[${extras_require}]" \
     && cd / && rm -rf ${SRCDIR}
 WORKDIR /
 
-CMD ["commandname"]
+CMD ["nii-to-dcm"]
